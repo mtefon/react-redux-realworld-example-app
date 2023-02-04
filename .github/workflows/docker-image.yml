@@ -22,11 +22,20 @@ jobs:
         registry: testacreroltest.azurecr.io
         username: ${{ secrets.ACR_USERNAME }}
         password: ${{ secrets.ACR_PASSWORD }}
-    -
-      name: Build and push
+    - name: Build and push
       uses: docker/build-push-action@v4
       with:
         push: true
         tags: testacreroltest.azurecr.io/redux/app:latest
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps: 
+    - uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'testacrapperol'
+        publish-profile: ${{ secrets.AZUREWEBAPPPUBLISHPROFILE }}
+        images: 'testacreroltest.azurecr.io/redux/app:latest'
+#         images: 'contoso.azurecr.io/nodejssampleapp:${{ github.sha }}'
     
     
