@@ -26,9 +26,12 @@ jobs:
       uses: docker/build-push-action@v4
       with:
         push: true
-        tags: testacreroltest.azurecr.io/redux/app:latest
+        tags: |
+          testacreroltest.azurecr.io/redux/app:latest
+          testacreroltest.azurecr.io/redux/app:${{ github.sha }}
 
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps: 
     - uses: azure/webapps-deploy@v2
