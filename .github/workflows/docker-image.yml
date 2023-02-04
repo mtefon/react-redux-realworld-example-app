@@ -27,6 +27,6 @@ jobs:
       uses: docker/build-push-action@v4
       with:
         push: true
-        tags: redux/app:latest
+        tags: testacreroltest.azurecr.io/redux/app:latest
     
     
