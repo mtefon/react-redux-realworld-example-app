@@ -12,7 +12,7 @@ variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: 'c6cf30e2-4f77-4f0f-9c43-b07fa38fb627'
   imageRepository: 'reactreduxapp'
-  containerRegistry: 'mttestacr.azurecr.io'
+  containerRegistry: 'mtCntReg.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
 
